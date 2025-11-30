@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.7</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ashton</groupId>
@@ -30,43 +30,89 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+
+        <!-- ========================================================= -->
+        <!-- 1. Spring Boot Core Dependencies                         -->
+        <!-- ========================================================= -->
+
+        <!-- Web module: provides Spring MVC, embedded Tomcat, JSON support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- AOP module: enables aspects, method interception, and annotations like @Aspect -->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.5</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+
+        <!-- ========================================================= -->
+        <!-- 2. Database & ORM Layer                                   -->
+        <!-- ========================================================= -->
+
+        <!-- MySQL JDBC driver (runtime scope because it is not needed for compilation) -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
+        <!-- MyBatis-Plus core starter for ORM capabilities -->
+        <!-- Version 3.5.14 is compatible with Spring Boot 2.7.x -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.14</version>
         </dependency>
+
+
+        <!-- ========================================================= -->
+        <!-- 3. Utility Libraries                                      -->
+        <!-- ========================================================= -->
+
+        <!-- Hutool: provides utility tools for IO, date, crypto, HTTP, JSON, etc. -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.16</version>
         </dependency>
 
+
+        <!-- ========================================================= -->
+        <!-- 4. API Documentation (Swagger / Knife4j)                  -->
+        <!-- ========================================================= -->
+
+        <!-- Knife4j OpenAPI v2 Starter: Swagger UI enhancement for API documentation -->
+        <!-- Version 4.4.0 supports Spring Boot 3+, will check compatibility if errors occur -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
+
+        <!-- ========================================================= -->
+        <!-- 5. Development Tools                                      -->
+        <!-- ========================================================= -->
+
+        <!-- Lombok: reduces boilerplate code (getters, setters, builder, etc.) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Boot Testing Starter: includes JUnit, MockMVC, AssertJ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
